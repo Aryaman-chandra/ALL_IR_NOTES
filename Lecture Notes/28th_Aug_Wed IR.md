@@ -34,8 +34,10 @@ But they come with computational complexity , and pointers and a lot restructuri
 One of the best data structure , tries are very efficient data structure for IR related tasks , 
 
 ```mermaid 
-flowchart TB
-root((root)) ==> set((s)) ==> e((e))
+graph TD
+root --> n4(("r")) --> n5((e)) --> n6(((s)))
+root(("root")) --> n1(("s")) --> n2(("e"))--> n3((("t")))
+n3 --> n7((t)) --> n8((i)) --> n9((n)) --> n10((g)) --> n11(((s)))
 ```
 
 
@@ -49,6 +51,7 @@ to search  for prefix query
 
 **Prefix Suffix Queries**
   \*ot\*  
+  
   Just take intersecton of 
 $$
 	S_U = Prefix\ Queries\ Results \
@@ -59,9 +62,27 @@ $$
 $$
 ### Permuterm Index 
 Given a word in voacbulary : 
-- append OOV out of vocabulary character 
-- make a index of each rotation of the word , and make an entry in permuterm index  ,and which points it to the orignal word.
+- append `OOV` out of vocabulary character 
+- make a index of each rotation of the word , and make an entry in permuterm index  ,and which points it to the original word.
 - Next we take the search term add the OOV and rotate the search term untill a wild cards are at the end
+
+We refer to the set of rotated  terms in permutem index as **Permuterm Vocabulary**
+```mermaid
+graph LR
+subgraph  perumterms
+	direction LR
+	a["hello$"] 
+	b["ello$h"]
+	c["llo$he"]
+	d["lo$hel"]
+	e["o$hell"]
+end
+a --> hello
+b--> hello
+c --> hello
+d --> hello
+e --> hello
+```
 
 **Steps involved in Permuterm search**
 - query 
