@@ -2,11 +2,6 @@
 - Permuterms 
 - k-terms indexes
 
-```mermaid
-flowchart
-
-```
-
 ```
 	$METRIC$ 
 	GIVE ME ALL SUBSET OF WORD ETR
@@ -23,9 +18,9 @@ THUSE $RETRIEVAL$ ARE NOT  MATCH WITH $RET*
 - full rotations are broken into smaller words 
 
 ```mermaid 
-flowchart TB 
-a[('$ro')]--> b[("rotate")];
-a-> c("rotation")]
+flowchart LR 
+a[[$ro]]--> b["rotate"]
+b--> c["rotation"]
 ```
 ### K-terms 
 if a rotation doesn't exist we add it to the index , other wise we remove it ,
